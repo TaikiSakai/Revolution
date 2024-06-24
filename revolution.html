@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>CLI Style Animation</title>
+    <style>
+        #spinner {
+            font-size: 2em;
+            font-family: monospace;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <div id="spinner">-</div>
+
+    <script>
+        // アニメーションの各フレーム
+        const frames = ['-', '\\', '|', '/'];
+        let currentFrame = 0;
+
+        // アニメーションを更新する関数
+        function updateSpinner() {
+            const spinner = document.getElementById('spinner');
+            spinner.textContent = frames[currentFrame];
+            currentFrame = (currentFrame + 1) % frames.length;
+        }
+
+        // 100ミリ秒ごとにアニメーションを更新
+        setInterval(updateSpinner, 100);
+    </script>
+</body>
+</html>
